@@ -24,7 +24,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         myLocManager.delegate = self
         myLocManager.desiredAccuracy = kCLLocationAccuracyBest
-        myLocManager.distanceFilter = 25.0
+        myLocManager.distanceFilter = 50.0
         myMap.frame = myView.bounds
 
     }
@@ -92,7 +92,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func addMarker(myPinCoord: CLLocationCoordinate2D, distance: Double){
         let pin        = MKPointAnnotation()
-        pin.title      = String.init(format: "( %.4f, %.4f )", myPinCoord.longitude, myPinCoord.latitude)
+        pin.title      = String.init(format: "( %.4f, %.4f )", myPinCoord.latitude, myPinCoord.longitude)
         print(pin.title ?? " Nil ")
         pin.subtitle   = String.init(format: "Distancia recorrida: %.2f m.", distance)
         print(pin.subtitle ?? " Nil ")
