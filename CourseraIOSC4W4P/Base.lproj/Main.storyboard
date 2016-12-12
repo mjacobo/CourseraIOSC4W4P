@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CourseraIOSC4W4P" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNm-x1-7YF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X9N-er-zh9">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4oW-cG-aiE"/>
+                                    <barButtonItem image="map_satellite" id="u8K-OA-QJD">
+                                        <connections>
+                                            <action selector="changeMapToSat:" destination="BYZ-38-t0r" id="3BZ-1P-BLD"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gJh-hK-OBz"/>
+                                    <barButtonItem image="map_norm" id="vUx-Dy-xuO">
+                                        <connections>
+                                            <action selector="changeMapToNor:" destination="BYZ-38-t0r" id="bVT-nA-mUp"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fm2-eE-ffT"/>
+                                    <barButtonItem image="map_hybrid" id="238-IM-M7t">
+                                        <connections>
+                                            <action selector="changeMapToHib:" destination="BYZ-38-t0r" id="Oa7-Fn-foY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Gg6-t0-lfh"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MNm-x1-7YF" secondAttribute="trailing" id="dJ0-H7-lWQ"/>
+                            <constraint firstAttribute="bottom" secondItem="MNm-x1-7YF" secondAttribute="bottom" id="p1U-05-nC4"/>
+                            <constraint firstItem="MNm-x1-7YF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qge-ra-mYj"/>
+                            <constraint firstItem="MNm-x1-7YF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wg4-Ox-Skf"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="myMap" destination="MNm-x1-7YF" id="Dad-4m-5V7"/>
+                        <outlet property="myView" destination="8bC-Xf-vdC" id="mbp-K3-fEF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="86.25" y="117.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="map_hybrid" width="25" height="25"/>
+        <image name="map_norm" width="25" height="25"/>
+        <image name="map_satellite" width="25" height="25"/>
+    </resources>
+</document>
