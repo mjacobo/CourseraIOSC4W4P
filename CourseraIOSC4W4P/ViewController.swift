@@ -26,19 +26,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         myLocManager.desiredAccuracy = kCLLocationAccuracyBest
         myLocManager.distanceFilter = 50.0
         myMap.frame = myView.bounds
-
+        myLocManager.requestAlwaysAuthorization()
     }
 
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
+        switch status {
+        case .restricted:
+            print("Restricted Access to location")
+            myLocManager.stopUpdatingLocation()
+            myMap.showsUserLocation = false
+        case .denied:
+            print("User denied access to location")
+            myLocManager.stopUpdatingLocation()
+            myMap.showsUserLocation = false
+        case .notDetermined:
+            print("Status not determined")
+            myLocManager.stopUpdatingLocation()
+            myMap.showsUserLocation = false
+        default:
+            print("Allowed to location Access")
             myLocManager.startUpdatingLocation()
             myMap.showsUserLocation = true
             myMap.userTrackingMode = MKUserTrackingMode.follow
-
-        } else {
-            myLocManager.stopUpdatingLocation()
-            myMap.showsUserLocation = false
         }
     }
     
